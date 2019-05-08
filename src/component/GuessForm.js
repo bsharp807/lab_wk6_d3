@@ -40,7 +40,7 @@ class GuessForm extends Component {
     return(
       <form onSubmit={this.handleSubmit}>
         <select name='characters' onChange={this.selectName}>
-          {namesArray.map((name) => <option>{name}</option>)};
+          {namesArray.map((name, index) => <option key={index}>{name}</option>)};
         </select>
         <input type='submit' value='Submit Event'/>
       </form>
