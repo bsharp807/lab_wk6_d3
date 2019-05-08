@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AnswerView from './AnswerView'
 
 class GuessForm extends Component {
 
@@ -28,15 +29,9 @@ class GuessForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const name = this.state.name;
-    if (name == this.props.answer.name) {
-      const answer =  => {
-        return <div>Yes! That's the correct answer!</div>
-      }
-    } else {
-      const answer = => {
-        return <div>No, that's wrong, try again</div>
-      }
-    }
+    const answer = this.props.answer;
+
+    return <AnswerView answer={answer} name={name}/>
     this.setState({name: ''})
   }
 
@@ -48,8 +43,8 @@ class GuessForm extends Component {
           {namesArray.map((name) => <option>{name}</option>)};
         </select>
         <input type='submit' value='Submit Event'/>
+        <AnswerView answer={this.state.selected}/>
       </form>
-
     )
   }
 
