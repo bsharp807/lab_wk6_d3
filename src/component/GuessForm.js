@@ -38,15 +38,17 @@ class GuessForm extends Component {
 
 
     return(
-      <form onSubmit={this.handleSubmit}>
-        <select name='characters' onChange={this.selectName}>
+      <div id='option-form' className="ui form">
+      <form onSubmit={this.handleSubmit} className='two fields'>
+        <select name='characters' onChange={this.selectName} className='field'>
           {namesArray.map((name, index) => <option key={index}>{name}</option>)};
         </select>
-        <input type='submit' value='Submit Event'/>
-        <div>
-          {this.state.result}
-        </div>
+        <input type='submit' value='Submit Event' className='ui positive button field'/>
       </form>
+      <div className='answer-text'>
+      {this.state.result}
+      </div>
+      </div>
     )
   }
 

@@ -218,11 +218,13 @@ class GuessWhoBox extends Component {
     this.randomAnswer();
     return (
       <div className="guess-who-box">
-        <h1>Guess The Game of Thrones Character!</h1>
+        <h1>Guess The <span className='font'>Game of Thrones</span> Character!</h1>
         <h3>*accurate as at S8E3</h3>
-        <PicsView characters={this.state.characters}/>
         <OptionForm answer={this.answer} />
         <GuessForm answer={this.answer} characters={this.state.characters}/>
+        <div className='grid-container'>
+          <PicsView characters={this.state.characters} />
+        </div>
       </div>
     )
   }

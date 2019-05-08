@@ -56,18 +56,20 @@ class OptionForm extends Component {
 
   render() {
     return (
-      <div className="option-form">
-        <form onSubmit={this.handleSubmit}>
-          <select onChange={this.handleSelection}>
+      <div id='option-form' className="ui form">
+        <form onSubmit={this.handleSubmit} className='three fields'>
+          <select onChange={this.handleSelection} className='ui selection dropdown'>
             <option value="House">House</option>
             <option value="Hair">Hair Colour</option>
             <option value="Gender">Gender</option>
             <option value="Dead">Are They Dead?</option>
           </select>
-           <OptionParticulars selected={this.state.selected} change={this.handleParticular} />
-          <input type="submit" value="Check" />
+           <OptionParticulars selected={this.state.selected} change={this.handleParticular} className='ui selection dropdown'/>
+          <input type="submit" value="Check" className='ui positive button fluid'/>
         </form>
+        <div className='answer-text'>
         {this.state.result}
+        </div>
       </div>
     )
   }
