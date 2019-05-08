@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import OptionParticulars from './OptionParticulars.js';
+import OptionAnswer from './OptionAnswer.js'
 
 class OptionForm extends Component {
   constructor(props) {
@@ -26,6 +27,11 @@ class OptionForm extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const universal = this.state.selected.toLowerCase();
+    const particular = this.state.particular;
+    const answer = this.props.answer;
+
+    this.setState({result: <OptionAnswer universal={universal} particular={particular} answer={answer}/>})
   }
 
   setDefaultOption(value) {
@@ -61,6 +67,7 @@ class OptionForm extends Component {
            <OptionParticulars selected={this.state.selected} change={this.handleParticular} />
           <input type="submit" value="Check" />
         </form>
+        {this.state.result}
       </div>
     )
   }
