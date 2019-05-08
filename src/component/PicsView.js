@@ -8,7 +8,7 @@ const PicsView = (props) => {
   });
 
   return (
-    <div class= "pics-view">
+    <div className= "pics-view">
       {pictures}
     </div>
   )
