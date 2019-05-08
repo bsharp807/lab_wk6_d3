@@ -1,0 +1,19 @@
+.pics-view {
+  max-width: 100%;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-rows: auto;
+}
+
+.pic-item {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pic {
+  width: 150px;
+  height: 150px;
+}
