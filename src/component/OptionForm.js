@@ -6,7 +6,7 @@ class OptionForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      particular: null,
+      particular: 'Targaryen',
       selected: 'House',
     }
 
@@ -18,7 +18,9 @@ class OptionForm extends Component {
 
   handleSelection(event) {
     this.setState({selected: event.target.value})
-
+    document.querySelector('#optionSelect').selectedIndex = 0;
+    const defaultOption = this.setDefaultOption(event.target.value);
+    this.setState({particular: defaultOption});
   }
 
   handleParticular(event) {
@@ -37,6 +39,7 @@ class OptionForm extends Component {
     );
     const options = unique.map((characteristic, i) => (<option key={i} value={characteristic}>{characteristic}</option>));
     console.log(options)
+
     return options;
   }
 
@@ -47,6 +50,25 @@ class OptionForm extends Component {
     const answer = this.props.answer;
 
     this.setState({result: <OptionAnswer universal={universal} particular={particular} answer={answer}/>})
+  }
+
+  setDefaultOption(value) {
+    switch (value) {
+      case 'House':
+        return 'Baratheon';
+        break;
+      case 'Hair':
+        return 'Black';
+        break;
+      case 'Gender':
+        return 'Female';
+        break;
+      case 'Dead':
+        return 'true';
+        break;
+      default:
+        return 'Baratheon';
+    }
   }
 
 
