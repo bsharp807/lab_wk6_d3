@@ -46,7 +46,7 @@ class OptionForm extends Component {
         return 'Female';
         break;
       case 'Dead':
-        return true;
+        return 'true';
         break;
       default:
         return 'Baratheon';

@@ -23,7 +23,7 @@ class OptionParticulars extends Component {
       this.updateDefaultOption('Baratheon');
         options = (
         <select name='house' onChange={this.props.change}>
-          <option selected default value='Baratheon'>Baratheon</option>
+          <option value='Baratheon'>Baratheon</option>
           <option value='Bolton'>Bolton</option>
           <option value='Greyjoy'>Greyjoy</option>
           <option value='Lannister'>Lannister</option>
@@ -60,8 +60,8 @@ class OptionParticulars extends Component {
       this.updateDefaultOption(true);
         options = (
           <select name='dead' onChange={this.props.change}>
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
+            <option value={'true'}>Yes</option>
+            <option value={'false'}>No</option>
           </select>
         )
         break;
