@@ -229,7 +229,7 @@ class GuessWhoBox extends Component {
 
   randomAnswer() {
     const characters = this.state.characters;
-    this.setState({characters: characters, answer: this.rand(characters)})
+    this.setState({answer: this.rand(characters)})
   }
 
   rand(array) {
