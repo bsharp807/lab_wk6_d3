@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 
 class GuessForm extends Component {
 
-  component(props) {
+  constructor(props) {
     super(props)
     this.state={
       name: ''
-    }
+    };
     // TODO: Binds
-    this.createNamesArray = this.createNamesArray.bind(this)
     this.slectName = this.selectName.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
 
   }
 
@@ -29,15 +29,19 @@ class GuessForm extends Component {
     event.preventDefault();
     const name = this.state.name;
     if (name == this.props.answer.name) {
-      return true
+      const answer =  => {
+        return <div>Yes! That's the correct answer!</div>
+      }
     } else {
-      return false
+      const answer = => {
+        return <div>No, that's wrong, try again</div>
+      }
     }
     this.setState({name: ''})
   }
 
   render() {
-    const namesArray = createNamesArray()
+    const namesArray = this.createNamesArray()
     return(
       <form onSubmit={this.handleSubmit}>
         <select name='characters' onChange={this.selectName}>
@@ -46,8 +50,9 @@ class GuessForm extends Component {
         <input type='submit' value='Submit Event'/>
       </form>
 
-
     )
   }
 
 }
+
+export default GuessForm;
