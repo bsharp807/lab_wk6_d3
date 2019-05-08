@@ -11,11 +11,17 @@ class OptionForm extends Component {
     }
 
     this.handleSelection = this.handleSelection.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSelection(event) {
     this.setState({selected: event.target.value})
   }
+
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
 
   render() {
     return (
@@ -34,4 +40,4 @@ class OptionForm extends Component {
   }
 }
 
-export default OptionForm
+export default OptionForm;
