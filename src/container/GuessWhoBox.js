@@ -132,7 +132,7 @@ class GuessWhoBox extends Component {
         { id: 16,
           name: 'Stannis Baratheon',
           house: 'Baratheon',
-          hair: 'Grey',
+          hair: 'White',
           gender: 'Male',
           dead: 'true',
           image: 'StannisBaratheon.jpeg',
