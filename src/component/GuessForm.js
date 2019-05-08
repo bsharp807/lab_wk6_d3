@@ -6,7 +6,7 @@ class GuessForm extends Component {
   constructor(props) {
     super(props)
     this.state={
-      name: ''
+      name: 'Jon Snow'
     };
     // TODO: Binds
     this.selectName = this.selectName.bind(this)
