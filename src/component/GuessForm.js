@@ -29,20 +29,23 @@ class GuessForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const name = this.state.name;
-    const answer = this.props.answer;
-
-    return <AnswerView answer={answer} name={name}/>
-    this.setState({name: ''})
+    const answer = this.props.answer.name;
+    this.setState({result: <AnswerView answer={answer} name={name}/>})
   }
 
   render() {
     const namesArray = this.createNamesArray()
+
+
     return(
       <form onSubmit={this.handleSubmit}>
         <select name='characters' onChange={this.selectName}>
           {namesArray.map((name, index) => <option key={index}>{name}</option>)};
         </select>
         <input type='submit' value='Submit Event'/>
+        <div>
+          {this.state.result}
+        </div>
       </form>
     )
   }
