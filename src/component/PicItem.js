@@ -5,7 +5,7 @@ const PicItem = (props) => {
   const image = `/images/${props.image}`
   return (
     <div className= "pic-item">
-      <img src={image} className='pic'/>
+      <img src={image} className='pic' alt={props.name}/>
       <p>{props.name}</p>
     </div>
   )

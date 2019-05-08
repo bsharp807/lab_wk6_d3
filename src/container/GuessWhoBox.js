@@ -210,34 +210,26 @@ class GuessWhoBox extends Component {
           image: 'Ygritte.jpeg',
         }
       ],
-      answer:
-              { id: 25,
-                name: 'Ygritte',
-                house: 'Wildling',
-                hair: 'Red',
-                gender: 'Female',
-                dead: false,
-                image: 'Ygritte.jpeg',
-              }
     }
+    this.answer = {}
   }
 
   render() {
-    // this.randomAnswer();
+    this.randomAnswer();
     return (
       <div className="guess-who-box">
         <h1>Guess The Game of Thrones Character!</h1>
         <h3>*accurate as at S8E3</h3>
         <PicsView characters={this.state.characters}/>
-        <OptionForm answer={this.state.answer} />
-        <GuessForm answer={this.state.answer} characters={this.state.characters}/>
+        <OptionForm answer={this.answer} />
+        <GuessForm answer={this.answer} characters={this.state.characters}/>
       </div>
     )
   }
 
   randomAnswer() {
     const characters = this.state.characters;
-    this.setState({answer: this.rand(characters)})
+    this.answer = this.rand(characters)
   }
 
   rand(array) {
