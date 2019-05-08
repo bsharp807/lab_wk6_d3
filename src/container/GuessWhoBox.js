@@ -220,7 +220,7 @@ class GuessWhoBox extends Component {
       <div className="guess-who-box">
         <h1>Guess The <span className='font'>Game of Thrones</span> Character!</h1>
         <h3>*accurate as at S8E3</h3>
-        <OptionForm answer={this.answer} />
+        <OptionForm characters={this.state.characters} answer={this.answer} />
         <GuessForm answer={this.answer} characters={this.state.characters}/>
         <div className='grid-container'>
           <PicsView characters={this.state.characters} />

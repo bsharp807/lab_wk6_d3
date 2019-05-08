@@ -1,28 +1,43 @@
 import React, {Component} from 'react';
-import OptionParticulars from './OptionParticulars.js';
+
 import OptionAnswer from './OptionAnswer.js'
 
 class OptionForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      particular: 'Baratheon',
+      particular: null,
       selected: 'House',
     }
 
     this.handleSelection = this.handleSelection.bind(this);
     this.handleParticular = this.handleParticular.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getOptions = this.getOptions.bind(this);
   }
 
   handleSelection(event) {
     this.setState({selected: event.target.value})
-    const defaultOption = this.setDefaultOption(event.target.value);
-    this.setState({particular: defaultOption});
+
   }
 
   handleParticular(event) {
     this.setState({particular: event.target.value})
+  }
+
+  getOptions() {
+    console.log(this.state.selected);
+    console.log(this.props.characters.length)
+    if (this.props.characters.length === 0) return null;
+    console.log(this.props.characters)
+    const characteristics = this.props.characters.map((character) => character[this.state.selected.toLowerCase()]);
+    console.log(characteristics);
+    const unique = characteristics.filter((characteristic, i, array) => (
+      array.indexOf(characteristic) === i )
+    );
+    const options = unique.map((characteristic, i) => (<option key={i} value={characteristic}>{characteristic}</option>));
+    console.log(options)
+    return options;
   }
 
   handleSubmit(event) {
@@ -34,24 +49,6 @@ class OptionForm extends Component {
     this.setState({result: <OptionAnswer universal={universal} particular={particular} answer={answer}/>})
   }
 
-  setDefaultOption(value) {
-    switch (value) {
-      case 'House':
-        return 'Baratheon';
-        break;
-      case 'Hair':
-        return 'Black';
-        break;
-      case 'Gender':
-        return 'Female';
-        break;
-      case 'Dead':
-        return 'true';
-        break;
-      default:
-        return 'Baratheon';
-    }
-  }
 
 
   render() {
@@ -64,7 +61,12 @@ class OptionForm extends Component {
             <option value="Gender">Gender</option>
             <option value="Dead">Are They Dead?</option>
           </select>
-           <OptionParticulars selected={this.state.selected} change={this.handleParticular} className='ui selection dropdown'/>
+
+          <select id="optionSelect" onChange={this.handleParticular}>
+          {this.getOptions()}
+          </select>
+
+
           <input type="submit" value="Check" className='ui positive button fluid'/>
         </form>
         <div className='answer-text'>
