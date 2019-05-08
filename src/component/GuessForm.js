@@ -9,7 +9,7 @@ class GuessForm extends Component {
       name: ''
     };
     // TODO: Binds
-    this.slectName = this.selectName.bind(this)
+    this.selectName = this.selectName.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
 
   }
@@ -43,7 +43,6 @@ class GuessForm extends Component {
           {namesArray.map((name) => <option>{name}</option>)};
         </select>
         <input type='submit' value='Submit Event'/>
-        <AnswerView answer={this.state.selected}/>
       </form>
     )
   }
