@@ -210,12 +210,20 @@ class GuessWhoBox extends Component {
           image: 'Ygritte.jpeg',
         }
       ],
-      answer: ''
+      answer:
+              { id: 25,
+                name: 'Ygritte',
+                house: 'Wildling',
+                hair: 'Red',
+                gender: 'Female',
+                dead: false,
+                image: 'Ygritte.jpeg',
+              }
     }
   }
 
   render() {
-    this.randomAnswer();
+    // this.randomAnswer();
     return (
       <div className="guess-who-box">
         <h1>Guess The Game of Thrones Character!</h1>

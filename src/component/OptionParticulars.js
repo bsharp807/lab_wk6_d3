@@ -2,7 +2,7 @@ import React from 'react';
 
 const OptionParticulars = (props) => {
 
-  const selection = this.props.selected;
+  const selection = props.selected;
 
   let options;
 
